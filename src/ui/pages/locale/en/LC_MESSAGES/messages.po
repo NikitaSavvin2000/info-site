@@ -1,0 +1,160 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Nikita Savvin <savvin.nikit@yandex.ru>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-12 09:21+0300\n"
+"PO-Revision-Date: 2025-01-12 09:25+0300\n"
+"Last-Translator: Nikita Savvin <savvin.nikit@yandex.ru>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/ui/pages/main_page.py:82
+msgid "Добро пожаловать в наш сайт"
+msgstr "Добро пожаловать в наш сайт"
+
+#: src/ui/pages/main_page.py:83
+msgid ""
+"Это демонстрация мультиязычного сайта на Streamlit с использованием gettext."
+msgstr ""
+"Это демонстрация мультиязычного сайта на Streamlit с использованием gettext."
+
+msgid "Добро пожаловать на наш сайт"
+msgstr "Welcome to our site"
+
+msgid "Это демонстрация поддержки мультиязычности."
+msgstr "This is a demonstration of multilingual support."
+
+msgid "Главная"
+msgstr "Home"
+
+msgid "Исследования"
+msgstr "Research"
+
+msgid "Команда"
+msgstr "Team"
+
+msgid "Horizon Time Series Data - Система прогнозирования временных рядов"
+msgstr "Horizon Time Series Data - Time Series Forecasting System"
+
+msgid "Прогнозируйте будущее, основываясь на данных"
+msgstr "Predict the future based on data"
+
+msgid "Наш инструмент прогнозирования временных рядов предоставляет мощные возможности для предиктивной аналитики в производственных процессах, энергетике, медицине и бизнесе. Он помогает принимать обоснованные решения на основе данных, улучшая планирование, оптимизацию и диагностику в различных отраслях"
+msgstr "Our time series forecasting tool provides powerful predictive analytics capabilities for manufacturing processes, energy, healthcare, and business. It helps make data-driven decisions, improving planning, optimization, and diagnostics across various industries."
+
+msgid "Простой прогноз"
+msgstr "Simple Forecast"
+
+msgid "Простой прогноз создан для быстрого получения результатов с минимальными усилиями. Достаточно загрузить данные, выбрать горизонт прогноза, и инструмент автоматически выполнит расчет, используя модели, разработанные на основе научных исследований. Этот подход позволяет оперативно оценивать тенденции и принимать решения, даже если требуется предварительная оценка данных. Простой прогноз идеально подходит для случаев, когда важна скорость и удобство, а высокая точность не является ключевым требованием."
+msgstr "The Simple Forecast is designed for quickly obtaining results with minimal effort. Simply upload the data, select the forecast horizon, and the tool will automatically perform the calculations using models developed based on scientific research. This approach enables rapid trend assessment and decision-making, even when preliminary data evaluation is required. The Simple Forecast is ideal for cases where speed and convenience are important, and high accuracy is not a critical requirement."
+
+msgid "Делай простой прогноз просто загрузив данные"
+msgstr "Make a simple forecast by simply uploading your data"
+
+msgid "Анализ данных"
+msgstr "Data Analysis"
+
+msgid "Раздел анализа данных предназначен для глубокого изучения временных рядов, выявления сезонных закономерностей и временных колебаний. Это инструмент для тех, кто хочет получить полное понимание динамики данных, оценить их структуру и прогнозируемость. С помощью мощных аналитических методов можно не только выявить тренды, но и глубже понять скрытые паттерны и сезонные эффекты, что помогает принимать более точные решения в бизнесе и стратегии. Анализ данных – это ключ к обоснованным выводам и эффективному управлению ресурсами."
+msgstr "The Data Analysis section is designed for in-depth exploration of time series, identification of seasonal patterns, and temporal fluctuations. It is a tool for those who seek a comprehensive understanding of data dynamics, evaluating their structure and predictability. Using powerful analytical methods, you can not only identify trends but also gain deeper insights into hidden patterns and seasonal effects, helping to make more accurate decisions in business and strategy. Data Analysis is the key to well-grounded conclusions and efficient resource management."
+
+msgid "Обучай свои модели"
+msgstr "Train Your Models"
+
+msgid "Раздел обучения моделей предназначен для поиска оптимальных параметров, которые обеспечат наибольшую точность прогноза, настроенного под индивидуальные данные. Даже без навыков программирования, пользователь может легко подобрать параметры, которые улучшат работу модели, делая прогноз более точным и адаптированным к конкретным условиям. Этот процесс позволяет настроить модель для максимально эффективной работы с данными, обеспечивая гибкость и надежность прогноза, что особенно важно для принятия стратегических решений в динамичных и изменяющихся условиях."
+msgstr "The Model Training section is designed to find optimal parameters that ensure the highest forecast accuracy tailored to individual data. Even without programming skills, users can easily select parameters that improve the model's performance, making the forecast more accurate and adapted to specific conditions. This process allows for fine-tuning the model for maximum efficiency with the data, ensuring flexibility and reliability in forecasting, which is especially important for making strategic decisions in dynamic and changing environments."
+
+msgid "Всегда будь в курсе прогноза"
+msgstr "Always Stay Updated with Forecasts"
+
+msgid "Позволяет получать актуальную информацию о прогнозах прямо на почту или в корпоративный мессенджер. Пользователи могут настроить индивидуальные пороговые значения (трешхолды), которые автоматически отправят уведомления о возможных аномалиях в данных, что помогает оперативно реагировать на изменения и минимизировать риски. Такой подход обеспечивает постоянный контроль над процессом, позволяет своевременно выявлять отклонения и принимать меры, что особенно важно для эффективного управления бизнес-процессами."
+msgstr "Allows you to receive up-to-date forecast information directly to your email or corporate messenger. Users can set individual thresholds that automatically send notifications about potential anomalies in the data, helping to react quickly to changes and minimize risks. This approach ensures constant process monitoring, allows timely detection of deviations, and enables corrective actions, which is especially important for effective business process management."
+
+msgid "Основные функции:"
+msgstr "Key Features:"
+
+msgid "Прогнозирование: Постоянные обновления и уведомления о прогнозах и аномалиях в корпоративные мессенджеры"
+msgstr "Forecasting: Continuous updates and notifications about forecasts and anomalies in corporate messengers"
+
+msgid "Высокая точность: Используем передовые алгоритмы машинного обучения и нейронные сети"
+msgstr "High Accuracy: We use advanced machine learning algorithms and neural networks"
+
+msgid "Глубокий анализ данных: Выявление ключевых факторов и разработка стратегий на основе временных рядов"
+msgstr "Deep Data Analysis: Identifying key factors and developing strategies based on time series"
+
+msgid "Легкий доступ: Веб-интерфейс с минимальной настройкой"
+msgstr "Easy Access: Web interface with minimal setup"
+
+msgid "Сбор данных: Автоматический сбор временных данных из различных источников"
+msgstr "Data Collection: Automatic gathering of time series data from various sources"
+
+msgid "Модульность: Возможность адаптации модели под конкретные бизнес-задачи"
+msgstr "Modularity: Ability to adapt the model to specific business tasks"
+
+msgid "Настраиваемость: Широкие возможности настройки параметров модели и прогнозов"
+msgstr "Customizability: Extensive options for model and forecast parameter configuration"
+
+msgid "Преимущества:"
+msgstr "Advantages:"
+
+msgid "Минимизация рисков благодаря качественным и оперативным прогнозам"
+msgstr "Risk minimization through high-quality and timely forecasts"
+
+msgid "Интуитивно понятный и простой интерфейс"
+msgstr "Intuitive and user-friendly interface"
+
+msgid "Снижение затрат рабочего времени на анализ и прогноз"
+msgstr "Reduction of work time spent on analysis and forecasting"
+
+msgid "Поддержка принятия стратегических решений"
+msgstr "Support for strategic decision-making"
+
+msgid "Интеграция с корпоративными системами и мессенджерами"
+msgstr "Integration with corporate systems and messengers"
+
+msgid "Гибкость и адаптивность под разные задачи"
+msgstr "Flexibility and adaptability to different tasks"
+
+msgid "Попробуйте сами:"
+msgstr "Try it yourself:"
+
+msgid "То как это может выглядеть у вас"
+msgstr "How this could look for you"
+
+msgid "Свяжитесь с нами:"
+msgstr "Contact Us:"
+
+msgid "Если у вас есть вопросы или вы хотите узнать больше, свяжитесь с нами:"
+msgstr "If you have any questions or would like to know more, contact us:"
+
+msgid "Телефон:"
+msgstr "Phone:"
+
+msgid "Веб-сайт:"
+msgstr "Website:"
+
+msgid "2025 Horizon Time Series Data. Все права защищены."
+msgstr "2025 Horizon Time Series Data. All rights reserved."
+
+msgid "Наша команда"
+msgstr "Our Team"
+
+msgid "Никита Саввин"
+msgstr "Nikita Savvin"
+
+msgid "Дмитрий Васенин"
+msgstr "Dmitry Vasenin"
+
+msgid "Магистр технологии искусственного интеллекта"
+msgstr "Master of Artificial Intelligence Technology"
+
+msgid "PhD. В области технологий для здравоохранения"
+msgstr "PhD. Candidate in Technology for Health"

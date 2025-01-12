@@ -2,6 +2,20 @@ import streamlit as st
 import base64
 import asyncio
 
+import gettext
+import os
+
+def set_language(lang: str):
+    locale_path = os.path.join(os.path.dirname(__file__), 'locale')
+    translation = gettext.translation(
+        domain="messages",
+        localedir=locale_path,
+        languages=[lang],
+        fallback=True
+    )
+    translation.install()
+    return translation.gettext
+
 
 def load_image_as_base64(image_path):
     with open(image_path, "rb") as image_file:
@@ -27,19 +41,21 @@ def display_team_member(photo, name, education, social_media, orcid, researchgat
 
 
 def team_page():
-    st.markdown("<h1 style='text-align: center;'>Наша команда</h1>", unsafe_allow_html=True)
+    _ = set_language(st.session_state.language)
+    team_text = _('Наша команда')
+    st.markdown(f"<h1 style='text-align: center;'>{team_text}</h1>", unsafe_allow_html=True)
     st.write(' ')
 
     photo1 = "src/ui/logos/Savvin_Nikita.png"
-    name1 = "Никита Саввин"
-    education1 = "Master of Computer Science"
+    name1 = _("Никита Саввин")
+    education1 = _("Магистр технологии искусственного интеллекта")
     social_media1 = "https://twitter.com/Nextian"  # Используем ссылку вместо текста
     orcid1 = "https://orcid.org/0009-0009-9163-6234"
     researchgate1 = "https://www.researchgate.net/profile/Nikita-Savvin-2"
 
     photo2 = "src/ui/logos/Dmitrii-Vasenin.jpg"
-    name2 = "Дмитрий Васенин"
-    education2 = "PhD. Candidate in Technology for Health"
+    name2 = _("Дмитрий Васенин")
+    education2 = _("PhD. В области технологий для здравоохранения")
     social_media2 = "-"
     orcid2 = "https://orcid.org/0000-0002-7028-9984"
     researchgate2 = "https://www.researchgate.net/profile/Dmitrii-Vasenin?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ"
