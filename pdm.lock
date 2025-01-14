@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.1"
-content_hash = "sha256:5c387f5925468841ea479712448c725056cfc5ef746073190f879eafd72687d7"
+content_hash = "sha256:5d9340c828f650ca4e7525e80913410b436e41485b73d68eea3f5e86df1250a0"
 
 [[package]]
 name = "altair"
@@ -1742,8 +1742,8 @@ files = [
 
 [[package]]
 name = "streamlit"
-version = "1.38.0"
-requires_python = "!=3.9.7,>=3.8"
+version = "1.41.0"
+requires_python = "!=3.9.7,>=3.9"
 summary = "A faster way to build and share data apps"
 groups = ["default"]
 dependencies = [
@@ -1752,24 +1752,24 @@ dependencies = [
     "cachetools<6,>=4.0",
     "click<9,>=7.0",
     "gitpython!=3.1.19,<4,>=3.0.7",
-    "numpy<3,>=1.20",
+    "numpy<3,>=1.23",
     "packaging<25,>=20",
-    "pandas<3,>=1.3.0",
-    "pillow<11,>=7.1.0",
+    "pandas<3,>=1.4.0",
+    "pillow<12,>=7.1.0",
     "protobuf<6,>=3.20",
     "pyarrow>=7.0",
     "pydeck<1,>=0.8.0b4",
     "requests<3,>=2.27",
     "rich<14,>=10.14.0",
-    "tenacity<9,>=8.1.0",
+    "tenacity<10,>=8.1.0",
     "toml<2,>=0.10.1",
     "tornado<7,>=6.0.3",
     "typing-extensions<5,>=4.3.0",
-    "watchdog<5,>=2.1.5; platform_system != \"Darwin\"",
+    "watchdog<7,>=2.1.5; platform_system != \"Darwin\"",
 ]
 files = [
-    {file = "streamlit-1.38.0-py2.py3-none-any.whl", hash = "sha256:0653ecfe86fef0f1608e3e082aef7eb335d8713f6f31e9c3b19486d1c67d7c41"},
-    {file = "streamlit-1.38.0.tar.gz", hash = "sha256:c4bf36b3ef871499ed4594574834583113f93f077dd3035d516d295786f2ad63"},
+    {file = "streamlit-1.41.0-py2.py3-none-any.whl", hash = "sha256:66a0e7ccb6c685b52782966f4a2fe63f757627eeaad0ca3f5b335b5bf191e7bd"},
+    {file = "streamlit-1.41.0.tar.gz", hash = "sha256:87c20027fcbc8690ad0955b7e89aea2276d14fca2c8c4b54a251bf2b66b40201"},
 ]
 
 [[package]]
