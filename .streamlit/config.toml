@@ -3,12 +3,12 @@ hideTopBar = true
 
 [theme]
 base="light"
+
 primaryColor="#1f77b4"
-#backgroundColor="#FAEBD7"  # цвет фона
+backgroundColor="#FAEBD7"  # цвет фона
 #secondaryBackgroundColor="#FAEBD7"  # цвет вторичного фона
 #textColor="#ffffff"  # цвет текста
-#font="courier"  # шрифт (можно выбрать: "sans serif", "serif", "monospace")
-font="monospace"  # шрифт (можно выбрать: "sans serif", "serif", "monospace")
+font="serif"  # шрифт (можно выбрать: "sans serif", "serif", "monospace")
 
 
 #backgroundColor="#FFFFFF"

@@ -220,8 +220,9 @@ def show_content_level_0_container_2(st, _):
     text_predict_decs = _('Позволяет получать актуальную информацию о прогнозах прямо на почту или в корпоративный мессенджер. Пользователи могут настроить индивидуальные пороговые значения (трешхолды), которые автоматически отправят уведомления о возможных аномалиях в данных, что помогает оперативно реагировать на изменения и минимизировать риски. Такой подход обеспечивает постоянный контроль над процессом, позволяет своевременно выявлять отклонения и принимать меры, что особенно важно для эффективного управления бизнес-процессами.')
     images_col_right[0].write(f'{text_predict_decs}')
 
+
 st.set_page_config(
-    page_title="Без боковой панели",
+    page_title="test",
     initial_sidebar_state="collapsed",
     layout="wide",
 )
@@ -240,7 +241,7 @@ st.markdown(
     <style>
         .st-emotion-cache-1jicfl2 {
             width: 100%;
-            padding: 2rem 4rem 1rem; /* Настроенные отступы */
+            padding: 2rem 4rem 1rem;
             min-width: auto;
             max-width: initial;
         }
@@ -320,6 +321,7 @@ async def main():
         st.session_state.cur_show_page = cur_show_page
 
     back_buttom = 'Назад'
+
     if st.session_state.content_container == 'level_0_container_0':
         gap = 1
         cols[0].markdown(
@@ -356,6 +358,7 @@ async def main():
             st.session_state.content_container = None
             st.rerun()
         show_content_level_0_container_2(st, _)
+
     elif st.session_state.cur_show_page == _('Команда'):
         team_page()
     elif st.session_state.cur_show_page == _('Исследования'):
@@ -498,7 +501,6 @@ async def main():
         text = 'text ' * cont_face_text
 
 
-
         with cols[0].container(height=height, border=True):
             line_0_col_0_title = '⚡ Минимизация рисков'
             st.markdown(
@@ -567,6 +569,7 @@ async def main():
                 unsafe_allow_html=True
             )
             st.write(text)
+
 
     st.markdown("---")
     gap = 20
