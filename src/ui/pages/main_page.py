@@ -100,7 +100,7 @@ def show_content_level_0_container_0(st, _):
 
 
 def show_content_level_0_container_1(st, _):
-    st.write('# Анализ данных 🔍')
+    st.write('# Анализ и обработка данных 🔍')
     st.markdown('---', unsafe_allow_html=True)
     images_col_left = st.columns(spec=[3, 2])
     images_col_right = st.columns(spec=[2, 3])
@@ -235,43 +235,6 @@ hide_sidebar_style = """
 """
 st.markdown(hide_sidebar_style, unsafe_allow_html=True)
 
-st.markdown(
-    """
-    <style>
-        .st-emotion-cache-1jicfl2 {
-            width: 100%;
-            padding: 2rem 4rem 1rem; /* Настроенные отступы */
-            min-width: auto;
-            max-width: initial;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-st.markdown(
-    """
-    <style>
-    .st-emotion-cache-1ibsh2c {
-        padding-top: 0 ; /* Устанавливаем верхний паддинг в 0 */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-
-st.markdown(
-    """
-    <style>
-    .st-emotion-cache-h4xjwg {
-        height: 0 ; /* Устанавливаем верхний паддинг в 0 */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 
 async def main():
 
@@ -363,11 +326,45 @@ async def main():
     elif st.session_state.cur_show_page == _('Главная'):
 
         with st.container(height=700, border=False):
-            st.title('Horizon TSD')
-            title_text = _('Horizon Time Series Data - Система прогнозирования временных рядов')
+            st.title('PowerPrognoz')
+            title_text = _('PowerPrognoz - Система анализа, обработки данных и прогнозирования энергопотребления')
             st.write(f'### {title_text}')
 
             gap = 150
+
+            st.markdown(
+                """
+                <style>
+                    .st-emotion-cache-1jicfl2 {
+                        width: 100%;
+                        padding: 2rem 4rem 1rem; /* Настроенные отступы */
+                        min-width: auto;
+                        max-width: initial;
+                    }
+                </style>
+                """,
+                unsafe_allow_html=True
+            )
+
+            # st.markdown(
+            #     """
+            #     <style>
+            #     .st-emotion-cache-1ibsh2c {
+            #         padding-top: 0 ; /* Устанавливаем верхний паддинг в 0 */
+            #     }
+            #     </style>
+            #     """,
+            #     unsafe_allow_html=True
+            # )
+
+
+            st.title("Advanced Modeling")
+            st.write("""
+            В основе нашей работы лежит убеждение, что для каждой задачи нужно использовать подходящий инструмент. Некоторые проблемы лучше всего решаются с помощью передовых технологий ИИ, другие — с помощью линейной регрессии, соответствующей текущим потребностям, а большинство задач находятся где-то посередине.
+            """)
+
+
+
             st.markdown(
                 f"""
                 <div style="height: {gap}px;"></div>
@@ -378,7 +375,7 @@ async def main():
             text_header = f'### {text_header}'
             st.write_stream(stream_data(text_header))
 
-            text_dexc = _('Наш инструмент прогнозирования временных рядов предоставляет мощные возможности для предиктивной аналитики в производственных процессах, энергетике, медицине и бизнесе. Он помогает принимать обоснованные решения на основе данных, улучшая планирование, оптимизацию и диагностику в различных отраслях')
+            text_dexc = _('Наш инструмент прогнозирования временных рядов предоставляет мощные возможности для предиктивной аналитики с особым акцентом на энергетический сектор. Он помогает предсказывать энергопотребление, оптимизировать распределение ресурсов и повышать устойчивость энергосистем. Благодаря глубокому анализу данных, инструмент также находит применение в производственных процессах, медицине и бизнесе, способствуя улучшению планирования, оптимизации и диагностики в различных отраслях.')
             text_dexc = f'##### {text_dexc}'
             st.write_stream(stream_data(text_dexc))
 
@@ -391,7 +388,7 @@ async def main():
         width_image_col = 5
         text = 'text '*120
 
-        with cols[0].container(height=height, border=True):
+        with cols[1].container(height=height, border=True):
             col_0_title = 'Прогнозирование'
 
             cols_image = st.columns(spec=[1,width_image_col,1])
@@ -418,14 +415,14 @@ async def main():
                 st.session_state.content_container = 'level_0_container_0'
                 st.rerun()
 
-        with cols[1].container(height=height, border=True):
+        with cols[0].container(height=height, border=True):
 
             cols_image = st.columns(spec=[1,width_image_col,1])
             with cols_image[1].container(height=height_image, border=False):
                 image_path = 'src/ui/images/pngwing2.com.png'
                 st.image(image_path, use_container_width=True)
 
-            col_1_title = 'Анализ данных'
+            col_1_title = 'Анализ и обработка данных'
             st.markdown(
                 f"""
                 <div style="text-align: center; margin: 0 auto;">
@@ -451,7 +448,7 @@ async def main():
                 image_path = 'src/ui/images/pngwing.com.png'
                 st.image(image_path, use_container_width=True)
 
-            col_2_title = 'Минимизация рисков'
+            col_2_title = 'Оптимизация процессов'
             st.markdown(
                 f"""
                 <div style="text-align: center; margin: 0 auto;">
@@ -480,7 +477,7 @@ async def main():
         )
 
         with st.container(height=250, border=False):
-            title_mid = 'Какой-то заголовок посередине'
+            title_mid = 'Преимущества нашего подхода'
             st.markdown(
                 f"""
                 <div style="font-family: {font}; text-align: center; font-size: 60px; margin: 0 auto;">
@@ -613,7 +610,7 @@ async def main():
     """)
 
     st.markdown("---")
-    text_last = _('2025 Horizon Time Series Data. Все права защищены.')
+    text_last = _('2025 PowerPrognoz. Все права защищены.')
     st.markdown(f"© {text_last}")
 
 
