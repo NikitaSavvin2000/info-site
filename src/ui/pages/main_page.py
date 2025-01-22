@@ -306,16 +306,33 @@ async def main():
     st.session_state.setdefault('cur_show_page', _('Главная'))
 
     with cols[1]:
-        cur_show_page = option_menu(
-            None,
-            [_('Главная'), _('Исследования'), _('Команда'),],
+        # cur_show_page = option_menu(
+        #     None,
+        #     [_('Главная'), _('Исследования'), _('Команда'),],
+        #
+        #     icons=['house-door', 'search', 'people'],
+        #     menu_icon="cast",
+        #     default_index=0,
+        #     orientation="horizontal",
+        #     key="sidebar_menu",
+        # )
 
-            icons=['house-door', 'search', 'people'],
-            menu_icon="cast",
-            default_index=0,
-            orientation="horizontal",
-            key="sidebar_menu",
+        option_map = {
+            0: _('Главная'),
+            1: _('Исследования'),
+            2: _('Команда'),
+        }
+        option = st.segmented_control(
+            None,
+            options=option_map.keys(),
+            format_func=lambda option: option_map[option],
+            selection_mode="single",
         )
+        if option is not None:
+            cur_show_page = option_map[option]
+        else:
+            cur_show_page = option_map[0]
+
     if cur_show_page != st.session_state.cur_show_page:
         st.session_state.content_container = None
         st.session_state.cur_show_page = cur_show_page
