@@ -5,10 +5,19 @@ import asyncio
 import gettext
 import streamlit as st
 
+from ui.html.header_content import generate_html_with_base64_image
 from team_page import team_page
 from PIL import Image, ImageDraw
 from streamlit_option_menu import option_menu
 from ui.pages.researches_page import show_articles
+from streamlit.components.v1 import html
+
+import base64
+
+def image_to_base64(image_path):
+    with open(image_path, "rb") as img_file:
+        encoded_string = base64.b64encode(img_file.read()).decode("utf-8")
+    return encoded_string
 
 
 config_path = '.streamlit/config.toml'
@@ -325,59 +334,66 @@ async def main():
         show_articles()
     elif st.session_state.cur_show_page == _('Главная'):
 
-        with st.container(height=700, border=False):
-            st.title('PowerPrognoz')
-            title_text = _('PowerPrognoz - Система анализа, обработки данных и прогнозирования энергопотребления')
-            st.write(f'### {title_text}')
+        # with st.container(height=700, border=False):
+        #     st.title('PowerPrognoz')
+        #     title_text = _('PowerPrognoz - Система анализа, обработки данных и прогнозирования энергопотребления')
+        #     st.write(f'### {title_text}')
+        #
+        #     gap = 150
+        #
+        #     st.markdown(
+        #         """
+        #         <style>
+        #             .st-emotion-cache-1jicfl2 {
+        #                 width: 100%;
+        #                 padding: 2rem 4rem 1rem; /* Настроенные отступы */
+        #                 min-width: auto;
+        #                 max-width: initial;
+        #             }
+        #         </style>
+        #         """,
+        #         unsafe_allow_html=True
+        #     )
+        #
+        #
+        #     st.title("Advanced Modeling")
+        #     st.write("""
+        #     В основе нашей работы лежит убеждение, что для каждой задачи нужно использовать подходящий инструмент. Некоторые проблемы лучше всего решаются с помощью передовых технологий ИИ, другие — с помощью линейной регрессии, соответствующей текущим потребностям, а большинство задач находятся где-то посередине.
+        #     """)
+        #
+        #
+        #
+        #     st.markdown(
+        #         f"""
+        #         <div style="height: {gap}px;"></div>
+        #         """,
+        #         unsafe_allow_html=True
+        #     )
+        #     text_header = _('Прогнозируйте будущее, основываясь на данных')
+        #     text_header = f'### {text_header}'
+        #     st.write_stream(stream_data(text_header))
+        #
+        #     text_dexc = _('Наш инструмент прогнозирования временных рядов предоставляет мощные возможности для предиктивной аналитики с особым акцентом на энергетический сектор. Он помогает предсказывать энергопотребление, оптимизировать распределение ресурсов и повышать устойчивость энергосистем. Благодаря глубокому анализу данных, инструмент также находит применение в производственных процессах, медицине и бизнесе, способствуя улучшению планирования, оптимизации и диагностики в различных отраслях.')
+        #     text_dexc = f'##### {text_dexc}'
+        #     st.write_stream(stream_data(text_dexc))
 
-            gap = 150
+        image_1 = image_to_base64('src/ui/html/mlechnyj_put_more_noch_1065595_3840x2400.jpg')
+        image_2 = image_to_base64('src/ui/html/tokio_nochnoj_gorod_neboskreby_121628_3840x2400.jpg')
+        image_3 = image_to_base64('src/ui/html/zemlia_planeta_kosmos_135594_3840x2400.jpg')
+        image_4 = image_to_base64('src/ui/html/mlechnyj_put_more_noch_1065595_3840x2400.jpg')
+        image_5 = image_to_base64('src/ui/html/tokio_nochnoj_gorod_neboskreby_121628_3840x2400.jpg')
 
-            st.markdown(
-                """
-                <style>
-                    .st-emotion-cache-1jicfl2 {
-                        width: 100%;
-                        padding: 2rem 4rem 1rem; /* Настроенные отступы */
-                        min-width: auto;
-                        max-width: initial;
-                    }
-                </style>
-                """,
-                unsafe_allow_html=True
-            )
-
-            # st.markdown(
-            #     """
-            #     <style>
-            #     .st-emotion-cache-1ibsh2c {
-            #         padding-top: 0 ; /* Устанавливаем верхний паддинг в 0 */
-            #     }
-            #     </style>
-            #     """,
-            #     unsafe_allow_html=True
-            # )
-
-
-            st.title("Advanced Modeling")
-            st.write("""
-            В основе нашей работы лежит убеждение, что для каждой задачи нужно использовать подходящий инструмент. Некоторые проблемы лучше всего решаются с помощью передовых технологий ИИ, другие — с помощью линейной регрессии, соответствующей текущим потребностям, а большинство задач находятся где-то посередине.
-            """)
-
-
-
-            st.markdown(
-                f"""
-                <div style="height: {gap}px;"></div>
-                """,
-                unsafe_allow_html=True
-            )
-            text_header = _('Прогнозируйте будущее, основываясь на данных')
-            text_header = f'### {text_header}'
-            st.write_stream(stream_data(text_header))
-
-            text_dexc = _('Наш инструмент прогнозирования временных рядов предоставляет мощные возможности для предиктивной аналитики с особым акцентом на энергетический сектор. Он помогает предсказывать энергопотребление, оптимизировать распределение ресурсов и повышать устойчивость энергосистем. Благодаря глубокому анализу данных, инструмент также находит применение в производственных процессах, медицине и бизнесе, способствуя улучшению планирования, оптимизации и диагностики в различных отраслях.')
-            text_dexc = f'##### {text_dexc}'
-            st.write_stream(stream_data(text_dexc))
+        with st.container(height=720, border=False, key='castom_header'):
+            title = "Welcome to the Presentation"
+            description = "Enjoy the beautiful slideshow background"
+            html_output = generate_html_with_base64_image(
+                title, description,
+                image_1,
+                image_2,
+                image_3,
+                image_4,
+                image_5)
+            html(html_output, height=700)
 
         cols = st.columns(3)
         font_size = "30px"
