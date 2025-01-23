@@ -27,6 +27,7 @@ config = toml.load(config_path)
 font = config['theme']['font']
 
 
+
 def round_corners(image_path, radius):
     img = Image.open(image_path).convert("RGBA")
     mask = Image.new("L", img.size, 0)

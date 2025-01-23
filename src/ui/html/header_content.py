@@ -32,11 +32,12 @@ def generate_html_with_base64_image(title, description, image_1, image_2 , image
                 width: 100%;
                 height: 100%;
                 z-index: -5;
-                background: black;
+                background: transparent; 
                 overflow: hidden;
             }}
 
             /* Стиль для изображений */
+
             .slideshow img {{
                 position: absolute;
                 top: 0;
@@ -47,8 +48,9 @@ def generate_html_with_base64_image(title, description, image_1, image_2 , image
                 opacity: 0;
                 animation: fade 16s infinite; /* Анимация смены изображений с увеличенной длительностью */
                 border-radius: 20px; /* Скругление углов */
+                background: transparent; /* Убираем фон в углах */
+                overflow: hidden;
             }}
-
             /* Задержка для каждого изображения */
             .slideshow img:nth-child(1) {{
                 animation-delay: 0s;
