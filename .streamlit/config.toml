@@ -1,9 +1,21 @@
+#[ui]
+#hideTopBar = true
+#
+#[theme]
+#base = "dark"
+#primaryColor = "rgb(131, 110, 25)"  #rgb(131, 110, 25) #808080
+#backgroundColor = "#2C2C2C"  # цвет фона
+#secondaryBackgroundColor = "#181818"  # цвет вторичного фона
+#textColor = "#E0E0E0"  # цвет текста #388E3C
+#font = "sans serif"  #  ['sans serif', 'serif', 'monospace'].
+
+
 [ui]
 hideTopBar = true
 
 [theme]
 base = "dark"
-primaryColor = "rgb(131, 110, 25)"  #rgb(131, 110, 25) #808080
+primaryColor = "#4A9A55"  #rgb(131, 110, 25) #808080
 backgroundColor = "#2C2C2C"  # цвет фона
 secondaryBackgroundColor = "#181818"  # цвет вторичного фона
 textColor = "#E0E0E0"  # цвет текста #388E3C
