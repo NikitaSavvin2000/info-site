@@ -4,6 +4,8 @@ import time
 import asyncio
 import gettext
 import streamlit as st
+import sys
+sys.path.append(os.path.abspath("/Users/dmitrii/Desktop/PhD/Python/website_2/info-site/src"))
 
 from ui.html.header_content import generate_html_with_base64_image
 from team_page import team_page
@@ -26,6 +28,17 @@ config = toml.load(config_path)
 
 font = config['theme']['font']
 
+text_analysis = "Выявляем скрытые закономерности и тренды в электропотреблении с помощью передовых методов обработки временных рядов."
+text_forecasting = "Используем машинное обучение и глубокие нейросети для точного предсказания энергопотребления и предотвращения пиковых нагрузок."
+text_optimization = "Разрабатываем интеллектуальные решения для повышения эффективности использования ресурсов и снижения затрат."
+
+# Определяем уникальные тексты для каждого блока
+text_risks = "Снижаем неопределенность и помогаем избежать неожиданных скачков энергопотребления."
+text_decision = "Предоставляем точные данные и прогнозы для эффективного управления ресурсами."
+text_integration = "Легко интегрируемся в существующие промышленные и IT-экосистемы."
+text_flexibility = "Адаптируемся под любые задачи благодаря модульному подходу."
+text_costs = "Оптимизируем энергопотребление и сокращаем издержки бизнеса."
+text_interface = "Интуитивно понятный и удобный интерфейс для работы без сложного обучения."
 
 
 def round_corners(image_path, radius):
@@ -105,7 +118,7 @@ def show_content_level_0_container_0(st, _):
     images_col_left[0].image(adv_forecast_2, use_container_width=True, caption="Демонстрация интерфейса")
     text_simple_forecast = _('Оценивай точность самостоятельно')
     images_col_left[1].success(f"##### 📊 {text_simple_forecast}")
-    text_simple_forecast_desc = _('Оценивай точность своих моделей самостоятельно')
+    text_simple_forecast_desc = _('Мы предоставляем широкий набор метрик, который позволяет вам проводить объективную оценку тестируемых моделей. Используйте метрики точности, ошибки, устойчивости и качества прогнозирования, чтобы понять, насколько эффективно работает ваша модель. Различные метрики – оценка ошибок (MSE, RMSE, MAE), коэффициент детерминации (R²) и другие. Гибкость в анализе – сравнивайте модели и выбирайте лучшие решения. Прозрачность – получите четкое представление о сильных и слабых сторонах модели. Доверьтесь данным, а не интуиции! 🚀')
     images_col_left[1].write(f'{text_simple_forecast_desc}')
 
 
@@ -383,10 +396,10 @@ async def main():
         image_3 = image_to_base64('src/ui/html/zemlia_planeta_kosmos_135594_3840x2400.jpg')
         image_4 = image_to_base64('src/ui/html/mlechnyj_put_more_noch_1065595_3840x2400.jpg')
         image_5 = image_to_base64('src/ui/html/tokio_nochnoj_gorod_neboskreby_121628_3840x2400.jpg')
-
+        
         with st.container(height=720, border=False, key='castom_header'):
-            title = "Welcome to the Presentation"
-            description = "Enjoy the beautiful slideshow background"
+            title = "Horizon Time Series Data"
+            description = "Horizon Time Series – энергия данных, точность прогнозов"
             html_output = generate_html_with_base64_image(
                 title, description,
                 image_1,
@@ -400,217 +413,310 @@ async def main():
         font_size = "30px"
         font_style = font
         gap = 0
-        height = 620
+        height = 450
         height_image = 190
         width_image_col = 5
-        text = 'text '*120
+        # text = 'Выявляем скрытые закономерности и тренды в электропотреблении с помощью передовых методов обработки временных рядов.'*120
+    # Анализ и обработка данных
+    with cols[0].container(height=height, border=True):
+        cols_image = st.columns(spec=[1, width_image_col, 1])
+        with cols_image[1].container(height=height_image, border=False):
+            image_path = 'src/ui/images/pngwing2.com.png'
+            st.image(image_path, use_container_width=True)
 
-        with cols[1].container(height=height, border=True):
-            col_0_title = 'Прогнозирование'
+        col_1_title = 'Анализ и обработка данных'
+        st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size}; font-weight: {font_style};'>{col_1_title}</span></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
+        st.write(text_analysis)
+        if st.button('Подробнее', type='primary', use_container_width=True, key='2'):
+            st.session_state.content_container = 'level_0_container_1'
+            st.rerun()
 
-            cols_image = st.columns(spec=[1,width_image_col,1])
-            with cols_image[1].container(height=height_image, border=False):
-                image_path = 'src/ui/images/238-2383266_line-graph-png-transparent-line-graph-png.png'
-                st.image(image_path, use_container_width=True)
+    # Прогнозирование
+    with cols[1].container(height=height, border=True):
+        col_0_title = 'Прогнозирование'
 
-            st.markdown(
-                f"""
-                <div style="text-align: center; margin: 0 auto;">
-                    <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{col_0_title}</span>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-            st.markdown(
-                f"""
-                <div style="height: {gap}px;"></div>
-                """,
-                unsafe_allow_html=True
-            )
-            st.write(text)
-            if st.button('Подробнее', type='primary', use_container_width=True, key='1'):
-                st.session_state.content_container = 'level_0_container_0'
-                st.rerun()
+        cols_image = st.columns(spec=[1, width_image_col, 1])
+        with cols_image[1].container(height=height_image, border=False):
+            image_path = 'src/ui/images/238-2383266_line-graph-png-transparent-line-graph-png.png'
+            st.image(image_path, use_container_width=True)
 
-        with cols[0].container(height=height, border=True):
+        st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size}; font-weight: {font_style};'>{col_0_title}</span></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
+        st.write(text_forecasting)
+        if st.button('Подробнее', type='primary', use_container_width=True, key='1'):
+            st.session_state.content_container = 'level_0_container_0'
+            st.rerun()
 
-            cols_image = st.columns(spec=[1,width_image_col,1])
-            with cols_image[1].container(height=height_image, border=False):
-                image_path = 'src/ui/images/pngwing2.com.png'
-                st.image(image_path, use_container_width=True)
+    # Оптимизация процессов
+    with cols[2].container(height=height, border=True):
+        cols_image = st.columns(spec=[1, width_image_col, 1])
+        with cols_image[1].container(height=height_image, border=False):
+            image_path = 'src/ui/images/pngwing.com.png'
+            st.image(image_path, use_container_width=True)
 
-            col_1_title = 'Анализ и обработка данных'
-            st.markdown(
-                f"""
-                <div style="text-align: center; margin: 0 auto;">
-                    <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{col_1_title}</span>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-            st.markdown(
-                f"""
-                <div style="height: {gap}px;"></div>
-                """,
-                unsafe_allow_html=True
-            )
-            st.write(text)
-            if st.button('Подробнее', type='primary', use_container_width=True, key='2'):
-                st.session_state.content_container = 'level_0_container_1'
-                st.rerun()
+        col_2_title = 'Оптимизация процессов'
+        st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size}; font-weight: {font_style};'>{col_2_title}</span></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
+        st.write(text_optimization)
+        if st.button('Подробнее', type='primary', use_container_width=True, key='3'):
+            st.session_state.content_container = 'level_0_container_2'
+            st.rerun()
+        # Пробел между блоками
+    # Пробел перед новыми блоками
+    gap = 150
+    st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
 
-        with cols[2].container(height=height, border=True):
-            cols_image = st.columns(spec=[1,width_image_col,1])
-            with cols_image[1].container(height=height_image, border=False):
-                image_path = 'src/ui/images/pngwing.com.png'
-                st.image(image_path, use_container_width=True)
+    # Центрированные малые блоки (ширина 2 из 5, отступы по 1)
+    cols_small = st.columns(spec=[1, 2, 2, 1])
+    font_size_small = "20px"
+    height_small = 150  # Уменьшенная высота блоков
 
-            col_2_title = 'Оптимизация процессов'
-            st.markdown(
-                f"""
-                <div style="text-align: center; margin: 0 auto;">
-                    <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{col_2_title}</span>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-            st.markdown(
-                f"""
-                <div style="height: {gap}px;"></div>
-                """,
-                unsafe_allow_html=True
-            )
-            st.write(text)
-            if st.button('Подробнее', type='primary', use_container_width=True, key='3'):
-                st.session_state.content_container = 'level_0_container_2'
-                st.rerun()
+    # Первый ряд малых блоков
+    with cols_small[1].container(height=height_small, border=True):
+        st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'⚡ Минимизация рисков'}</span></div>", unsafe_allow_html=True)
+        st.write(text_risks)
 
-        gap = 100
-        st.markdown(
-            f"""
-            <div style="height: {gap}px;"></div>
-            """,
-            unsafe_allow_html=True
-        )
+    with cols_small[2].container(height=height_small, border=True):
+        st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'🧠 Поддержка принятия решений'}</span></div>", unsafe_allow_html=True)
+        st.write(text_decision)
 
-        with st.container(height=250, border=False):
-            title_mid = 'Преимущества нашего подхода'
-            st.markdown(
-                f"""
-                <div style="font-family: {font}; text-align: center; font-size: 60px; margin: 0 auto;">
-                    <h1>{title_mid}</h1>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
+    # Второй ряд малых блоков
+    cols_small = st.columns(spec=[1, 2, 2, 1])
 
-        cols = st.columns(2)
-        font_size = "25px"
-        font_style = font
-        height = 200
-        cont_face_text = 100
-        text = 'text ' * cont_face_text
+    with cols_small[1].container(height=height_small, border=True):
+        st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'🔗 Интеграция'}</span></div>", unsafe_allow_html=True)
+        st.write(text_integration)
+
+    with cols_small[2].container(height=height_small, border=True):
+        st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'🔧 Гибкость и адаптивность'}</span></div>", unsafe_allow_html=True)
+        st.write(text_flexibility)
+
+    # Третий ряд малых блоков
+    cols_small = st.columns(spec=[1, 2, 2, 1])
+
+    with cols_small[1].container(height=height_small, border=True):
+        st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'⏳ Снижение затрат'}</span></div>", unsafe_allow_html=True)
+        st.write(text_costs)
+
+    with cols_small[2].container(height=height_small, border=True):
+        st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'✨ Интуитивный интерфейс'}</span></div>", unsafe_allow_html=True)
+        st.write(text_interface)
 
 
 
-        with cols[0].container(height=height, border=True):
-            line_0_col_0_title = '⚡ Минимизация рисков'
-            st.markdown(
-                f"""
-                <div style="text-align: center; margin: 0 auto;">
-                    <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{line_0_col_0_title}</span>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-            st.write(text)
-        with cols[1].container(height=height, border=True):
-            line_0_col_1_title = '🧠 Поддержка принятия решений'
-            st.markdown(
-                f"""
-                <div style="text-align: center; margin: 0 auto;">
-                    <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{line_0_col_1_title}</span>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-            st.write(text)
 
-        with cols[0].container(height=height, border=True):
-            line_1_col_0_title = '🔗 Интеграция'
-            st.markdown(
-                f"""
-                <div style="text-align: center; margin: 0 auto;">
-                    <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{line_1_col_0_title}</span>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-            st.write(text)
-        with cols[1].container(height=height, border=True):
-            line_1_col_1_title = '🔧 Гибкость и адаптивность'
-            st.markdown(
-                f"""
-                <div style="text-align: center; margin: 0 auto;">
-                    <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{line_1_col_1_title}</span>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-            st.write(text)
+        # with cols[1].container(height=height, border=True):
+        #     col_0_title = 'Прогнозирование'
 
-        with cols[0].container(height=height, border=True):
-            line_1_col_0_title = '⏳ Снижение затрат'
-            st.markdown(
-                f"""
-                    <div style="text-align: center; margin: 0 auto;">
-                        <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{line_1_col_0_title}</span>
-                    </div>
-                    """,
-                unsafe_allow_html=True
-            )
-            st.write(text)
-        with cols[1].container(height=height, border=True):
-            line_1_col_1_title = '✨ Интуитивный интерфейс'
-            st.markdown(
-                f"""
-                    <div style="text-align: center; margin: 0 auto;">
-                        <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{line_1_col_1_title}</span>
-                    </div>
-                    """,
-                unsafe_allow_html=True
-            )
-            st.write(text)
+        #     cols_image = st.columns(spec=[1,width_image_col,1])
+        #     with cols_image[1].container(height=height_image, border=False):
+        #         image_path = 'src/ui/images/238-2383266_line-graph-png-transparent-line-graph-png.png'
+        #         st.image(image_path, use_container_width=True)
 
-    st.markdown("---")
-    gap = 20
-    st.markdown(
-        f"""
-                <div style="height: {gap}px;"></div>
-                """,
-        unsafe_allow_html=True
-    )
+        #     st.markdown(
+        #         f"""
+        #         <div style="text-align: center; margin: 0 auto;">
+        #             <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{col_0_title}</span>
+        #         </div>
+        #         """,
+        #         unsafe_allow_html=True
+        #     )
+        #     st.markdown(
+        #         f"""
+        #         <div style="height: {gap}px;"></div>
+        #         """,
+        #         unsafe_allow_html=True
+        #     )
+        #     st.write(text)
+        #     if st.button('Подробнее', type='primary', use_container_width=True, key='1'):
+        #         st.session_state.content_container = 'level_0_container_0'
+        #         st.rerun()
+        
 
-    with st.container(height=200, border=False):
-        title_mid = 'Попробуйте сами!'
-        st.markdown(
-            f"""
-                    <div style="font-family: {font}; text-align: center; font-size: 60px; margin: 0 auto;">
-                        <h1>{title_mid}</h1>
-                    </div>
-                    """,
-            unsafe_allow_html=True
-        )
-        gap = 40
-        st.markdown(
-            f"""
-                        <div style="height: {gap}px;"></div>
-                        """,
-            unsafe_allow_html=True
-        )
-        cols = st.columns(3)
-        link_button_text = _('То как это может выглядеть у вас')
-        cols[1].link_button(label=link_button_text, url='http://77.37.136.11:8501', help=None, type="primary",  disabled=False, use_container_width=True)
+        # with cols[0].container(height=height, border=True):
+
+        #     cols_image = st.columns(spec=[1,width_image_col,1])
+        #     with cols_image[1].container(height=height_image, border=False):
+        #         image_path = 'src/ui/images/pngwing2.com.png'
+        #         st.image(image_path, use_container_width=True)
+
+        #     col_1_title = 'Анализ и обработка данных'
+        #     st.markdown(
+        #         f"""
+        #         <div style="text-align: center; margin: 0 auto;">
+        #             <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{col_1_title}</span>
+        #         </div>
+        #         """,
+        #         unsafe_allow_html=True
+        #     )
+        #     st.markdown(
+        #         f"""
+        #         <div style="height: {gap}px;"></div>
+        #         """,
+        #         unsafe_allow_html=True
+        #     )
+        #     st.write(text)
+        #     if st.button('Подробнее', type='primary', use_container_width=True, key='2'):
+        #         st.session_state.content_container = 'level_0_container_1'
+        #         st.rerun()
+
+        # with cols[2].container(height=height, border=True):
+        #     cols_image = st.columns(spec=[1,width_image_col,1])
+        #     with cols_image[1].container(height=height_image, border=False):
+        #         image_path = 'src/ui/images/pngwing.com.png'
+        #         st.image(image_path, use_container_width=True)
+
+        #     col_2_title = 'Оптимизация процессов'
+        #     st.markdown(
+        #         f"""
+        #         <div style="text-align: center; margin: 0 auto;">
+        #             <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{col_2_title}</span>
+        #         </div>
+        #         """,
+        #         unsafe_allow_html=True
+        #     )
+        #     st.markdown(
+        #         f"""
+        #         <div style="height: {gap}px;"></div>
+        #         """,
+        #         unsafe_allow_html=True
+        #     )
+        #     st.write(text)
+        #     if st.button('Подробнее', type='primary', use_container_width=True, key='3'):
+        #         st.session_state.content_container = 'level_0_container_2'
+        #         st.rerun()
+
+    #     gap = 100
+    #     st.markdown(
+    #         f"""
+    #         <div style="height: {gap}px;"></div>
+    #         """,
+    #         unsafe_allow_html=True
+    #     )
+
+    #     with st.container(height=250, border=False):
+    #         title_mid = 'Преимущества нашего подхода'
+    #         st.markdown(
+    #             f"""
+    #             <div style="font-family: {font}; text-align: center; font-size: 60px; margin: 0 auto;">
+    #                 <h1>{title_mid}</h1>
+    #             </div>
+    #             """,
+    #             unsafe_allow_html=True
+    #         )
+
+    #     cols = st.columns(2)
+    #     font_size = "25px"
+    #     font_style = font
+    #     height = 200
+    #     cont_face_text = 100
+    #     text = 'text ' * cont_face_text
+
+
+
+    #     with cols[0].container(height=height, border=True):
+    #         line_0_col_0_title = '⚡ Минимизация рисков'
+    #         st.markdown(
+    #             f"""
+    #             <div style="text-align: center; margin: 0 auto;">
+    #                 <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{line_0_col_0_title}</span>
+    #             </div>
+    #             """,
+    #             unsafe_allow_html=True
+    #         )
+    #         st.write(text)
+    #     with cols[1].container(height=height, border=True):
+    #         line_0_col_1_title = '🧠 Поддержка принятия решений'
+    #         st.markdown(
+    #             f"""
+    #             <div style="text-align: center; margin: 0 auto;">
+    #                 <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{line_0_col_1_title}</span>
+    #             </div>
+    #             """,
+    #             unsafe_allow_html=True
+    #         )
+    #         st.write(text)
+
+    #     with cols[0].container(height=height, border=True):
+    #         line_1_col_0_title = '🔗 Интеграция'
+    #         st.markdown(
+    #             f"""
+    #             <div style="text-align: center; margin: 0 auto;">
+    #                 <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{line_1_col_0_title}</span>
+    #             </div>
+    #             """,
+    #             unsafe_allow_html=True
+    #         )
+    #         st.write(text)
+    #     with cols[1].container(height=height, border=True):
+    #         line_1_col_1_title = '🔧 Гибкость и адаптивность'
+    #         st.markdown(
+    #             f"""
+    #             <div style="text-align: center; margin: 0 auto;">
+    #                 <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{line_1_col_1_title}</span>
+    #             </div>
+    #             """,
+    #             unsafe_allow_html=True
+    #         )
+    #         st.write(text)
+
+    #     with cols[0].container(height=height, border=True):
+    #         line_1_col_0_title = '⏳ Снижение затрат'
+    #         st.markdown(
+    #             f"""
+    #                 <div style="text-align: center; margin: 0 auto;">
+    #                     <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{line_1_col_0_title}</span>
+    #                 </div>
+    #                 """,
+    #             unsafe_allow_html=True
+    #         )
+    #         st.write(text)
+    #     with cols[1].container(height=height, border=True):
+    #         line_1_col_1_title = '✨ Интуитивный интерфейс'
+    #         st.markdown(
+    #             f"""
+    #                 <div style="text-align: center; margin: 0 auto;">
+    #                     <span style="font-family: {font}; font-size: {font_size}; font-weight: {font_style};">{line_1_col_1_title}</span>
+    #                 </div>
+    #                 """,
+    #             unsafe_allow_html=True
+    #         )
+    #         st.write(text)
+
+    # st.markdown("---")
+    # gap = 20
+    # st.markdown(
+    #     f"""
+    #             <div style="height: {gap}px;"></div>
+    #             """,
+    #     unsafe_allow_html=True
+    # )
+
+    # with st.container(height=200, border=False):
+    #     title_mid = 'Попробуйте сами!'
+    #     st.markdown(
+    #         f"""
+    #                 <div style="font-family: {font}; text-align: center; font-size: 60px; margin: 0 auto;">
+    #                     <h1>{title_mid}</h1>
+    #                 </div>
+    #                 """,
+    #         unsafe_allow_html=True
+    #     )
+    #     gap = 40
+    #     st.markdown(
+    #         f"""
+    #                     <div style="height: {gap}px;"></div>
+    #                     """,
+    #         unsafe_allow_html=True
+    #     )
+    #     cols = st.columns(3)
+    #     link_button_text = _('То как это может выглядеть у вас')
+    #     cols[1].link_button(label=link_button_text, url='http://77.37.136.11:8501', help=None, type="primary",  disabled=False, use_container_width=True)
+
+
+
+
 
     st.markdown("---")
     st.write(' ')
