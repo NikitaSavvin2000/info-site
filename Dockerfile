@@ -16,7 +16,6 @@ RUN pdm build
 RUN pdm install
 
 
-EXPOSE 8501
 
 ENTRYPOINT ["pdm", "run", "src/server.py"]
 
