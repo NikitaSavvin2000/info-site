@@ -13,6 +13,8 @@ from PIL import Image, ImageDraw
 from streamlit_option_menu import option_menu
 from ui.pages.researches_page import show_articles
 from streamlit.components.v1 import html
+import time
+
 
 import base64
 
@@ -276,6 +278,7 @@ async def main():
         unsafe_allow_html=True
     )
 
+
     popover_lang = cols[2].popover(st.session_state.language_show, use_container_width=True)
     with popover_lang:
         if st.button('ru'):
@@ -352,20 +355,22 @@ async def main():
         image_1 = image_to_base64('src/ui/html/mlechnyj_put_more_noch_1065595_3840x2400.jpg')
         image_2 = image_to_base64('src/ui/html/tokio_nochnoj_gorod_neboskreby_121628_3840x2400.jpg')
         image_3 = image_to_base64('src/ui/html/zemlia_planeta_kosmos_135594_3840x2400.jpg')
-        image_4 = image_to_base64('src/ui/html/mlechnyj_put_more_noch_1065595_3840x2400.jpg')
-        image_5 = image_to_base64('src/ui/html/tokio_nochnoj_gorod_neboskreby_121628_3840x2400.jpg')
+        image_4 = image_to_base64('src/ui/html/jason-mavrommatis--s1w1SguZTI-unsplash.jpg')
+        image_5 = image_to_base64('src/ui/html/soren-h-omfN1pW-n2Y-unsplash.jpg')
+
+        title = "Horizon Time Series Data"
+        description = "Horizon Time Series – энергия данных, точность прогнозов"
+        html_output = generate_html_with_base64_image(
+            title, description,
+            image_1,
+            image_2,
+            image_3,
+            image_4,
+            image_5)
         
         with st.container(height=720, border=False, key='castom_header'):
-            title = "Horizon Time Series Data"
-            description = "Horizon Time Series – энергия данных, точность прогнозов"
-            html_output = generate_html_with_base64_image(
-                title, description,
-                image_1,
-                image_2,
-                image_3,
-                image_4,
-                image_5)
             html(html_output, height=700)
+
 
         cols = st.columns(3)
         font_size = "30px"
