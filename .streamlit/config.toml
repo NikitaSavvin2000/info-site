@@ -1,23 +1,24 @@
-#[ui]
-#hideTopBar = true
-#
-#[theme]
-#base = "light"
-#primaryColor = "rgb(131, 110, 25)"  # основной цвет
-#backgroundColor = "#D9EAFD"  # белый фон
-#secondaryBackgroundColor = "#f5f5f5"  # светло-серый вторичный фон
-#textColor = "#181818"  # тёмный цвет текста
-#font = "sans serif"
-
-
-
 [ui]
 hideTopBar = true
 
 [theme]
-base = "dark"
-primaryColor = "#4A9A55"  #rgb(131, 110, 25) #808080
-backgroundColor = "#2C2C2C"  # цвет фона
-secondaryBackgroundColor = "#181818"  # цвет вторичного фона
-textColor = "#E0E0E0"  # цвет текста #388E3C
+base = "light"
+primaryColor = "rgb(56, 171, 232)"  # основной цвет
+backgroundColor = "#D9EAFD"  # белый фон
+secondaryBackgroundColor = "#f5f5f5"  # светло-серый вторичный фон
+textColor = "#181818"  # тёмный цвет текста
+#textColor = "#E0E0E0"  # цвет текстаrgb(154, 203, 208)
+#font = "sans serif"
+
+
+
+#[ui]
+#hideTopBar = true
+
+#[theme]
+#base = "dark"
+#primaryColor = "#4A9A55"  #rgb(129, 207, 233) #808080
+#backgroundColor = "#D9EAFD"  # цвет фона
+#secondaryBackgroundColor = "#D9EAFD"  # цвет вторичного фона
+#textColor = "#E0E0E0"  # цвет текстаrgb(154, 203, 208)
 font = "sans serif"  #  ['sans serif', 'serif', 'monospace'].
