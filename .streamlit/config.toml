@@ -1,13 +1,21 @@
-
-
-
 [ui]
 hideTopBar = true
 
+#[theme]
+#base = "dark"
+#primaryColor = "#4A9A55"  #rgb(131, 110, 25) #808080
+#backgroundColor = "#2C2C2C"  # цвет фона
+#secondaryBackgroundColor = "#181818"  # цвет вторичного фона
+#textColor = "#E0E0E0"  # цвет текста #388E3C
+#font = "sans serif"  #  ['sans serif', 'serif', 'monospace'].
+
+
 [theme]
-base = "dark"
-primaryColor = "#4A9A55"  #rgb(131, 110, 25) #808080
-backgroundColor = "#2C2C2C"  # цвет фона
-secondaryBackgroundColor = "#181818"  # цвет вторичного фона
-textColor = "#E0E0E0"  # цвет текста #388E3C
-font = "sans serif"  #  ['sans serif', 'serif', 'monospace'].
+base = "light"
+#primaryColor = "#8C8F93"
+primaryColor = "#8590A0"  # Светло-серый с лёгким синим оттенком
+
+backgroundColor = "#FFFFFF"  # Основное окно
+secondaryBackgroundColor = "#F7F7F8"  # Панель слева
+textColor = "#2B2B2B"  # Цвет текста
+font = "sans serif"
