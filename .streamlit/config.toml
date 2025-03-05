@@ -4,8 +4,8 @@ hideTopBar = true
 [theme]
 base = "light"
 primaryColor = "rgb(56, 171, 232)"  # основной цвет
-backgroundColor = "#D9EAFD"  # белый фон
-secondaryBackgroundColor = "#f5f5f5"  # светло-серый вторичный фон
+backgroundColor = "rgb(235, 239, 242)"  # белый фон
+secondaryBackgroundColor = "rgb(200, 225, 238)"  # светло-серый вторичный фон
 textColor = "#181818"  # тёмный цвет текста
 #textColor = "#E0E0E0"  # цвет текстаrgb(154, 203, 208)
 #font = "sans serif"
@@ -21,4 +21,4 @@ textColor = "#181818"  # тёмный цвет текста
 #backgroundColor = "#D9EAFD"  # цвет фона
 #secondaryBackgroundColor = "#D9EAFD"  # цвет вторичного фона
 #textColor = "#E0E0E0"  # цвет текстаrgb(154, 203, 208)
-font = "sans serif"  #  ['sans serif', 'serif', 'monospace'].
+font = "monospace"  #  ['sans serif', 'serif', 'monospace'].
