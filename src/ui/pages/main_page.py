@@ -150,13 +150,14 @@ def show_content_level_0_container_1(st, _):
     analytics = "src/ui/images/dark_theme_no_text-Photoroom.png"
     analytics = round_corners(analytics, radius=50)
 
+
     analytics_screenshot_1 = "src/ui/images/analysis_screenshot1.png"
     analytics_screenshot_1 = round_corners(analytics_screenshot_1, radius=50)
 
-    analytics_screenshot_2 = "src/ui/images/analysis_screenshot_2.png"
+    analytics_screenshot_2 = "src/ui/images/analysis_screenshot2.png"
     analytics_screenshot_2 = round_corners(analytics_screenshot_2, radius=50)
 
-    analytics_screenshot_3 = "src/ui/images/analysis_screenshot_3.png"
+    analytics_screenshot_3 = "src/ui/images/analysis_screenshot3.png"
     analytics_screenshot_3 = round_corners(analytics_screenshot_3, radius=50)
 
     adv_forecast = "src/ui/images/adv_forecast_2.png"
@@ -191,29 +192,29 @@ def show_content_level_0_container_1(st, _):
 def show_content_level_0_container_2(st, _):
     st.write('# Минимизация рисков 🔍')
     st.markdown('---', unsafe_allow_html=True)
-    images_col_left = st.columns(spec=[3, 2])
-    images_col_right = st.columns(spec=[2, 3])
 
-    simple_forecast_1 = "src/ui/images/simple_forecast_1.png"
-    simple_forecast_1 = round_corners(simple_forecast_1, radius=50)
 
-    simple_forecast_2 = "src/ui/images/simple_forecast.png"
+    simple_forecast_2 = "src/ui/images/level_0_container_2_image_1.png"
     simple_forecast_2 = round_corners(simple_forecast_2, radius=50)
 
-    analysis_page_1 = "src/ui/images/time_series_analysis.png"
+    analysis_page_1 = "src/ui/images/analysis_screenshot3.png"
     analysis_page_1 = round_corners(analysis_page_1, radius=50)
 
-    analysis_page_2 = "src/ui/images/time_series_analysis_2.png"
-    analysis_page_2 = round_corners(analysis_page_2, radius=50)
+    adv_forecast = "src/ui/images/level_0_container_2_image_2.png"
+    adv_forecast = round_corners(adv_forecast, radius=50)
 
-    grid_search_page = "src/ui/images/grid_search.png"
-    grid_search_page = round_corners(grid_search_page, radius=50)
+    scrin_4 = "src/ui/images/level_0_container_2_image_4.png"
+    scrin_4 = round_corners(scrin_4, radius=50)
 
-    analytics = "src/ui/images/dark_theme_no_text-Photoroom.png"
+    scrin_5 = "src/ui/images/level_0_container_2_image_5.png"
+    scrin_5 = round_corners(scrin_5, radius=50)
+
+    analytics = "src/ui/images/level_0_container_2_image_3.png"
     analytics = round_corners(analytics, radius=50)
 
-    adv_forecast = "src/ui/images/adv_forecast_2.png"
-    adv_forecast = round_corners(adv_forecast, radius=50)
+
+    images_col_left = st.columns(spec=[3, 2])
+    images_col_right = st.columns(spec=[2, 3])
 
     images_col_left[0].image(simple_forecast_2, use_container_width=True, caption="Демонстрация интерфейса")
     text_simple_forecast = _('Простой прогноз')
@@ -245,6 +246,22 @@ def show_content_level_0_container_2(st, _):
     title_text_predict = _('Всегда будь в курсе прогноза')
     images_col_right[0].success(f"##### 💻 {title_text_predict}")
     text_predict_decs = _('Позволяет получать актуальную информацию о прогнозах прямо на почту или в корпоративный мессенджер. Пользователи могут настроить индивидуальные пороговые значения (трешхолды), которые автоматически отправят уведомления о возможных аномалиях в данных, что помогает оперативно реагировать на изменения и минимизировать риски. Такой подход обеспечивает постоянный контроль над процессом, позволяет своевременно выявлять отклонения и принимать меры, что особенно важно для эффективного управления бизнес-процессами.')
+    images_col_right[0].write(f'{text_predict_decs}')
+
+
+    images_col_left = st.columns(spec=[3, 2])
+    images_col_right = st.columns(spec=[2, 3])
+
+    images_col_left[0].image(scrin_4, use_container_width=True, caption="Демонстрация интерфейса")
+    title_text_learn_model = _('Создание своих уведомлений')
+    images_col_left[1].success(f"##### 📌 {title_text_learn_model}")
+    text_learn_model_desc = _('Раздел создания уведомлений предназначен для настройки автоматических оповещений на основе прогнозных данных. Это позволяет оперативно реагировать на важные изменения и принимать обоснованные решения. Пользователь может задать условия и параметры уведомлений, чтобы получать своевременные сообщения при достижении критических значений или значимых тенденций. Гибкая система настройки обеспечивает адаптацию уведомлений под конкретные задачи, повышая удобство работы и эффективность мониторинга')
+    images_col_left[1].write(f'{text_learn_model_desc}')
+
+    images_col_right[1].image(scrin_5, use_container_width=True, caption="Демонстрация интерфейса")
+    title_text_predict = _('Получение уведомлений о превышении установенных значений на основвании прогноза')
+    images_col_right[0].success(f"##### 📩 {title_text_predict}")
+    text_predict_decs = _('Получение уведомлений о превышении установленных значений позволяет заранее реагировать на критические изменения, основываясь на прогнозных данных. Система автоматически отслеживает показатели и отправляет оповещения, если значения выходят за заданные границы. Это помогает оперативно принимать меры, снижать риски и эффективно управлять процессами. Гибкая настройка уведомлений позволяет адаптировать их под индивидуальные потребности, обеспечивая надежный контроль за ключевыми параметрами.')
     images_col_right[0].write(f'{text_predict_decs}')
 
 
@@ -323,7 +340,7 @@ async def main():
         if cols[0].button(back_buttom, type='primary', key='back_level_0_container_0', use_container_width=True):
             st.session_state.content_container = None
             st.rerun()
-            show_content_level_0_container_0(st, _)
+        show_content_level_0_container_0(st, _)
     elif st.session_state.content_container == 'level_0_container_1':
         gap = 1
         cols[0].markdown(
@@ -336,6 +353,7 @@ async def main():
             st.session_state.content_container = None
             st.rerun()
         show_content_level_0_container_1(st, _)
+        st.write('test')
     elif st.session_state.content_container == 'level_0_container_2':
         gap = 1
         cols[0].markdown(
@@ -378,7 +396,7 @@ async def main():
         font_size = "30px"
         font_style = font
         gap = 0
-        height = 450
+        height = 470
         height_image = 190
         width_image_col = 5
             # text = 'Выявляем скрытые закономерности и тренды в электропотреблении с помощью передовых методов обработки временных рядов.'*120
@@ -393,6 +411,8 @@ async def main():
             st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size}; font-weight: {font_style};'>{col_1_title}</span></div>", unsafe_allow_html=True)
             st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
             st.write(text_analysis)
+            st.markdown(f"<div style='height: {25}px;'></div>", unsafe_allow_html=True)
+
             if st.button('Подробнее', type='primary', use_container_width=True, key='2'):
                 st.session_state.content_container = 'level_0_container_1'
                 st.rerun()
@@ -424,6 +444,8 @@ async def main():
             st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size}; font-weight: {font_style};'>{col_2_title}</span></div>", unsafe_allow_html=True)
             st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
             st.write(text_optimization)
+            st.markdown(f"<div style='height: {25}px;'></div>", unsafe_allow_html=True)
+
             if st.button('Подробнее', type='primary', use_container_width=True, key='3'):
                 st.session_state.content_container = 'level_0_container_2'
                 st.rerun()
@@ -467,6 +489,18 @@ async def main():
         with cols_small[2].container(height=height_small, border=True):
             st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'✨ Интуитивный интерфейс'}</span></div>", unsafe_allow_html=True)
             st.write(text_interface)
+
+        st.markdown("---")
+        st.markdown(f"<div style='height: {50}px;'></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {35}px;'>{'Реализованный пример для University of Brescia'}</span></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='height: {10}px;'></div>", unsafe_allow_html=True)
+
+        cols = st.columns(3)
+        cols[1].image("src/ui/images/new_logo_2022.svg")
+
+
+        cols[1].link_button("Перейти", type="primary", url="http://77.37.136.11:8501", use_container_width=True)
+        st.markdown(f"<div style='height: {50}px;'></div>", unsafe_allow_html=True)
 
 
     st.markdown("---")
