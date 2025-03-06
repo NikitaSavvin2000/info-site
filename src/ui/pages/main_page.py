@@ -28,7 +28,9 @@ config_path = '.streamlit/config.toml'
 
 config = toml.load(config_path)
 
-font = config['theme']['font']
+font = 'arial'
+
+
 
 text_analysis = "Выявляем скрытые закономерности и тренды в электропотреблении с помощью передовых методов обработки временных рядов."
 text_forecasting = "Используем машинное обучение и глубокие нейросети для точного предсказания энергопотребления и предотвращения пиковых нагрузок."
@@ -352,9 +354,9 @@ async def main():
         show_articles()
     elif st.session_state.cur_show_page == _('Главная'):
 
-        image_1 = image_to_base64('src/ui/html/mlechnyj_put_more_noch_1065595_3840x2400.jpg')
-        image_2 = image_to_base64('src/ui/html/tokio_nochnoj_gorod_neboskreby_121628_3840x2400.jpg')
-        image_3 = image_to_base64('src/ui/html/zemlia_planeta_kosmos_135594_3840x2400.jpg')
+        image_1 = image_to_base64('src/ui/html/windmills_energy_clouds_467807_3840x2160.jpg')
+        image_2 = image_to_base64('src/ui/html/high-voltage-post-high-voltage-tower.jpg')
+        image_3 = image_to_base64('src/ui/html/3d-windmill-project.jpg')
         image_4 = image_to_base64('src/ui/html/jason-mavrommatis--s1w1SguZTI-unsplash.jpg')
         image_5 = image_to_base64('src/ui/html/soren-h-omfN1pW-n2Y-unsplash.jpg')
 
@@ -432,7 +434,7 @@ async def main():
 
         # Центрированные малые блоки (ширина 2 из 5, отступы по 1)
         cols_small = st.columns(spec=[1, 2, 2, 1])
-        font_size_small = "20px"
+        font_size_small = "25px"
         height_small = 150  # Уменьшенная высота блоков
 
         # Первый ряд малых блоков
