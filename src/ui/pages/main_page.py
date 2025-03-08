@@ -7,16 +7,15 @@ import streamlit as st
 import sys
 sys.path.append(os.path.abspath("/Users/dmitrii/Desktop/PhD/Python/website_2/info-site/src"))
 
-from ui.html.header_content import generate_html_with_base64_image
+from ui.html.header_content import generate_html_with_base64_image, generate_html_info
 from team_page import team_page
 from PIL import Image, ImageDraw
 from streamlit_option_menu import option_menu
 from ui.pages.researches_page import show_articles
 from streamlit.components.v1 import html
 import time
-
-
 import base64
+
 
 def image_to_base64(image_path):
     with open(image_path, "rb") as img_file:
@@ -29,8 +28,6 @@ config_path = '.streamlit/config.toml'
 config = toml.load(config_path)
 
 font = 'arial'
-
-
 
 text_analysis = "Выявляем скрытые закономерности и тренды в электропотреблении с помощью передовых методов обработки временных рядов."
 text_forecasting = "Используем машинное обучение и глубокие нейросети для точного предсказания энергопотребления и предотвращения пиковых нагрузок."
@@ -266,7 +263,7 @@ def show_content_level_0_container_2(st, _):
 
 
 st.set_page_config(
-    page_title="Без боковой панели",
+    page_title="Horizon Time Series Data",
     initial_sidebar_state="collapsed",
     layout="wide",
 )
@@ -396,7 +393,8 @@ async def main():
         font_size = "30px"
         font_style = font
         gap = 0
-        height = 470
+        gap_2 = 40
+        height = 490
         height_image = 190
         width_image_col = 5
             # text = 'Выявляем скрытые закономерности и тренды в электропотреблении с помощью передовых методов обработки временных рядов.'*120
@@ -411,7 +409,7 @@ async def main():
             st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size}; font-weight: {font_style};'>{col_1_title}</span></div>", unsafe_allow_html=True)
             st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
             st.write(text_analysis)
-            st.markdown(f"<div style='height: {25}px;'></div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='height: {gap_2}px;'></div>", unsafe_allow_html=True)
 
             if st.button('Подробнее', type='primary', use_container_width=True, key='2'):
                 st.session_state.content_container = 'level_0_container_1'
@@ -429,6 +427,8 @@ async def main():
             st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size}; font-weight: {font_style};'>{col_0_title}</span></div>", unsafe_allow_html=True)
             st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
             st.write(text_forecasting)
+            st.markdown(f"<div style='height: {gap_2}px;'></div>", unsafe_allow_html=True)
+
             if st.button('Подробнее', type='primary', use_container_width=True, key='1'):
                 st.session_state.content_container = 'level_0_container_0'
                 st.rerun()
@@ -444,51 +444,37 @@ async def main():
             st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size}; font-weight: {font_style};'>{col_2_title}</span></div>", unsafe_allow_html=True)
             st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
             st.write(text_optimization)
-            st.markdown(f"<div style='height: {25}px;'></div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='height: {gap_2}px;'></div>", unsafe_allow_html=True)
 
             if st.button('Подробнее', type='primary', use_container_width=True, key='3'):
                 st.session_state.content_container = 'level_0_container_2'
                 st.rerun()
             # Пробел между блоками
         # Пробел перед новыми блоками
-        gap = 150
-        st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
 
-        # Центрированные малые блоки (ширина 2 из 5, отступы по 1)
-        cols_small = st.columns(spec=[1, 2, 2, 1])
-        font_size_small = "25px"
-        height_small = 150  # Уменьшенная высота блоков
 
-        # Первый ряд малых блоков
-        with cols_small[1].container(height=height_small, border=True):
-            st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'⚡ Минимизация рисков'}</span></div>", unsafe_allow_html=True)
-            st.write(text_risks)
+        image_1 = image_to_base64('src/ui/html/pexels-artempodrez-5716032.jpg')
+        image_2 = image_to_base64('src/ui/html/pexels-rdne-7413936.jpg')
+        image_3 = image_to_base64('src/ui/html/pexels-mikhail-nilov-6963017.jpg')
+        image_4 = image_to_base64('src/ui/html/pexels-vlada-karpovich-7433837.jpg')
+        image_5 = image_to_base64('src/ui/html/pexels-pavel-danilyuk-7868970.jpg')
+        test_text = 'text '*100
+        titles = ['⚡ Минимизация рисков', '🧠 Поддержка принятия решений', '🔗 Интеграция', '🔧 Гибкость и адаптивность', '⏳ Снижение затрат', '✨ Интуитивный интерфейс']
+        texts = ['', '', '', '', '', '']
+        texts = [text_risks, text_decision, text_integration, text_flexibility, text_costs, text_interface]
 
-        with cols_small[2].container(height=height_small, border=True):
-            st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'🧠 Поддержка принятия решений'}</span></div>", unsafe_allow_html=True)
-            st.write(text_decision)
+        html_output = generate_html_info(
+            image_1,
+            image_2,
+            image_3,
+            image_4,
+            image_5,
+            titles,
+            texts,
+            'monospace')
 
-        # Второй ряд малых блоков
-        cols_small = st.columns(spec=[1, 2, 2, 1])
-
-        with cols_small[1].container(height=height_small, border=True):
-            st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'🔗 Интеграция'}</span></div>", unsafe_allow_html=True)
-            st.write(text_integration)
-
-        with cols_small[2].container(height=height_small, border=True):
-            st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'🔧 Гибкость и адаптивность'}</span></div>", unsafe_allow_html=True)
-            st.write(text_flexibility)
-
-        # Третий ряд малых блоков
-        cols_small = st.columns(spec=[1, 2, 2, 1])
-
-        with cols_small[1].container(height=height_small, border=True):
-            st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'⏳ Снижение затрат'}</span></div>", unsafe_allow_html=True)
-            st.write(text_costs)
-
-        with cols_small[2].container(height=height_small, border=True):
-            st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size_small};'>{'✨ Интуитивный интерфейс'}</span></div>", unsafe_allow_html=True)
-            st.write(text_interface)
+        with st.container(height=720, border=False, key='castom_info'):
+            html(html_output, height=700)
 
         st.markdown("---")
         st.markdown(f"<div style='height: {50}px;'></div>", unsafe_allow_html=True)

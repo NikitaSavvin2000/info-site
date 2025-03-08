@@ -96,3 +96,123 @@ def generate_html_with_base64_image(title, description, image_1, image_2, image_
     </html>
     """
     return html_content
+
+
+def generate_html_info(image_1, image_2, image_3, image_4, image_5, titles, texts, font_text="Arial"):
+    html_content = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Interactive Blocks</title>
+        <style>
+            html, body {{
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: {font_text};
+            }}
+
+            .slideshow {{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -5;
+                background: transparent;
+                overflow: hidden;
+            }}
+
+            .slideshow img {{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                animation: fade 25s infinite;
+                border-radius: 20px;
+            }}
+
+            .slideshow img:nth-child(1) {{ animation-delay: 0s; }}
+            .slideshow img:nth-child(2) {{ animation-delay: 5s; }}
+            .slideshow img:nth-child(3) {{ animation-delay: 10s; }}
+            .slideshow img:nth-child(4) {{ animation-delay: 15s; }}
+            .slideshow img:nth-child(5) {{ animation-delay: 20s; }}
+
+            @keyframes fade {{
+                0% {{ opacity: 0; }}
+                10% {{ opacity: 1; }}
+                30% {{ opacity: 1; }}
+                40% {{ opacity: 0; }}
+                100% {{ opacity: 0; }}
+            }}
+
+            .info-container {{
+                position: absolute;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 20px;
+                width: 80%;
+                height: 60%;
+                z-index: 1;
+            }}
+
+            .info-block {{
+                background: rgba(255, 255, 255, 0.85);
+                padding: 20px;
+                border-radius: 15px;
+                text-align: center;
+                transition: transform 0.3s ease-in-out;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-family: {font_text};
+            }}
+
+            .info-block:hover {{
+                transform: scale(1.1);
+            }}
+
+            .info-title {{
+                font-size: 1.7rem;
+                font-weight: Semi Bold;
+                color: #333;
+                text-align: center;
+            }}
+
+            .info-description {{
+                font-size: 1.4rem;
+                color: #333;
+                text-align: center;
+            }}
+        </style>
+    </head>
+    <body>
+    <div class="slideshow">
+        <img src="data:image/jpeg;base64,{image_1}" alt="Image 1">
+        <img src="data:image/jpeg;base64,{image_2}" alt="Image 2">
+        <img src="data:image/jpeg;base64,{image_3}" alt="Image 3">
+        <img src="data:image/jpeg;base64,{image_4}" alt="Image 4">
+        <img src="data:image/jpeg;base64,{image_5}" alt="Image 5">
+    </div>
+
+    <div class="info-container">
+        {''.join([f'<div class="info-block"><div class="info-title">{titles[i]}</div><br><div class="info-description">{texts[i]}</div></div>' for i in range(6)])}
+    </div>
+    </body>
+    </html>
+    """
+    return html_content
+
+

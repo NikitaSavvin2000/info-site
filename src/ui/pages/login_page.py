@@ -27,7 +27,6 @@ async def login():
                 },
             )
 
-
             if authentication_status:
                 st.session_state.authentication_status = True
                 st.markdown(
