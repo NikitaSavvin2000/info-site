@@ -7,7 +7,7 @@ import streamlit as st
 import sys
 sys.path.append(os.path.abspath("/Users/dmitrii/Desktop/PhD/Python/website_2/info-site/src"))
 
-from ui.html.header_content import generate_html_with_base64_image, generate_html_info
+from ui.html.header_content import generate_html_with_base64_image, generate_html_info, generate_html_blocks
 from team_page import team_page
 from PIL import Image, ImageDraw
 from streamlit_option_menu import option_menu
@@ -22,24 +22,22 @@ def image_to_base64(image_path):
         encoded_string = base64.b64encode(img_file.read()).decode("utf-8")
     return encoded_string
 
+def set_language(lang: str):
+    locale_path = os.path.join(os.path.dirname(__file__), 'locale')
+    translation = gettext.translation(
+        domain="messages",
+        localedir=locale_path,
+        languages=[lang],
+        fallback=True
+    )
+    translation.install()
+    return translation.gettext
 
 config_path = '.streamlit/config.toml'
 
 config = toml.load(config_path)
 
 font = 'arial'
-
-text_analysis = "Выявляем скрытые закономерности и тренды в электропотреблении с помощью передовых методов обработки временных рядов."
-text_forecasting = "Используем машинное обучение и глубокие нейросети для точного предсказания энергопотребления и предотвращения пиковых нагрузок."
-text_optimization = "Разрабатываем интеллектуальные решения для повышения эффективности использования ресурсов и снижения затрат."
-
-# Определяем уникальные тексты для каждого блока
-text_risks = "Снижаем неопределенность и помогаем избежать неожиданных скачков энергопотребления."
-text_decision = "Предоставляем точные данные и прогнозы для эффективного управления ресурсами."
-text_integration = "Легко интегрируемся в существующие промышленные и IT-экосистемы."
-text_flexibility = "Адаптируемся под любые задачи благодаря модульному подходу."
-text_costs = "Оптимизируем энергопотребление и сокращаем издержки бизнеса."
-text_interface = "Интуитивно понятный и удобный интерфейс для работы без сложного обучения."
 
 
 def round_corners(image_path, radius):
@@ -57,20 +55,9 @@ def stream_data(text):
         time.sleep(0.02)
 
 
-def set_language(lang: str):
-    locale_path = os.path.join(os.path.dirname(__file__), 'locale')
-    translation = gettext.translation(
-        domain="messages",
-        localedir=locale_path,
-        languages=[lang],
-        fallback=True
-    )
-    translation.install()
-    return translation.gettext
-
-
 def show_content_level_0_container_0(st, _):
-    st.write('# Прогнозирование 📈')
+    title_text = _('Прогнозирование 📈')
+    st.write(f'# {title_text}')
     st.markdown('---', unsafe_allow_html=True)
     images_col_left = st.columns(spec=[3, 2])
     images_col_right = st.columns(spec=[2, 3])
@@ -124,7 +111,8 @@ def show_content_level_0_container_0(st, _):
 
 
 def show_content_level_0_container_1(st, _):
-    st.write('# Анализ и обработка данных 🔍')
+    text_title = _('Анализ и обработка данных 🔍')
+    st.write(f'# {text_title}')
     st.markdown('---', unsafe_allow_html=True)
     images_col_left = st.columns(spec=[3, 2])
     images_col_right = st.columns(spec=[2, 3])
@@ -187,7 +175,8 @@ def show_content_level_0_container_1(st, _):
 
 
 def show_content_level_0_container_2(st, _):
-    st.write('# Минимизация рисков 🔍')
+    text_title = _('Минимизация рисков 🔍')
+    st.write(f'# {text_title}')
     st.markdown('---', unsafe_allow_html=True)
 
 
@@ -280,6 +269,10 @@ st.markdown(hide_sidebar_style, unsafe_allow_html=True)
 
 async def main():
 
+    st.session_state.setdefault('bloc_1_select', False)
+    st.session_state.setdefault('bloc_2_select', False)
+    st.session_state.setdefault('bloc_3_select', False)
+
     st.session_state.setdefault('language', 'ru')
     st.session_state.setdefault('language_show', '🇷🇺 RU')
     st.session_state.setdefault('content_container', None)
@@ -308,6 +301,20 @@ async def main():
 
     _ = set_language(st.session_state.language)
 
+
+
+    text_analysis = _("Выявляем скрытые закономерности и тренды в электропотреблении с помощью передовых методов обработки временных рядов.")
+    text_forecasting = _("Используем машинное обучение и глубокие нейросети для точного предсказания энергопотребления и предотвращения пиковых нагрузок.")
+    text_optimization = _("Разрабатываем интеллектуальные решения для повышения эффективности использования ресурсов и снижения затрат.")
+
+    # Определяем уникальные тексты для каждого блока
+    text_risks = _("Снижаем неопределенность и помогаем избежать неожиданных скачков энергопотребления.")
+    text_decision = _("Предоставляем точные данные и прогнозы для эффективного управления ресурсами.")
+    text_integration = _("Легко интегрируемся в существующие промышленные и IT-экосистемы.")
+    text_flexibility = _("Адаптируемся под любые задачи благодаря модульному подходу.")
+    text_costs = _("Оптимизируем энергопотребление и сокращаем издержки бизнеса.")
+    text_interface = _("Интуитивно понятный и удобный интерфейс для работы без сложного обучения.")
+
     st.session_state.setdefault('cur_show_page', _('Главная'))
 
     with cols[1]:
@@ -325,7 +332,8 @@ async def main():
         st.session_state.content_container = None
         st.session_state.cur_show_page = cur_show_page
 
-    back_buttom = 'Назад'
+    back_buttom = _('Назад')
+
     if st.session_state.content_container == 'level_0_container_0':
         gap = 1
         cols[0].markdown(
@@ -369,14 +377,14 @@ async def main():
         show_articles()
     elif st.session_state.cur_show_page == _('Главная'):
 
-        image_1 = image_to_base64('src/ui/html/windmills_energy_clouds_467807_3840x2160.jpg')
-        image_2 = image_to_base64('src/ui/html/high-voltage-post-high-voltage-tower.jpg')
-        image_3 = image_to_base64('src/ui/html/3d-windmill-project.jpg')
+        image_1 = image_to_base64('src/ui/html/3d-windmill-project.jpg')
+        image_2 = image_to_base64('src/ui/html/pexels-pok-rie-33563-157827.jpg')
+        image_3 = image_to_base64('src/ui/html/jason-mavrommatis-nyL-rzwP-Mk-unsplash.jpg')
         image_4 = image_to_base64('src/ui/html/jason-mavrommatis--s1w1SguZTI-unsplash.jpg')
         image_5 = image_to_base64('src/ui/html/soren-h-omfN1pW-n2Y-unsplash.jpg')
 
         title = "Horizon Time Series Data"
-        description = "Horizon Time Series – энергия данных, точность прогнозов"
+        description = _("Horizon Time Series – энергия данных, точность прогнозов")
         html_output = generate_html_with_base64_image(
             title, description,
             image_1,
@@ -393,31 +401,36 @@ async def main():
         font_size = "30px"
         font_style = font
         gap = 0
-        gap_2 = 40
-        height = 490
+        gap_2 = 70
+        gap_2_castom = gap_2
+        if st.session_state.language == 'ru':
+            gap_2_castom = gap_2 - 26
+
+        height = 520
         height_image = 190
         width_image_col = 5
-            # text = 'Выявляем скрытые закономерности и тренды в электропотреблении с помощью передовых методов обработки временных рядов.'*120
-        # Анализ и обработка данных
+
+        text_button_more = _('Подробнее')
+
         with cols[0].container(height=height, border=True):
             cols_image = st.columns(spec=[1, width_image_col, 1])
             with cols_image[1].container(height=height_image, border=False):
                 image_path = 'src/ui/images/pngwing2.com.png'
                 st.image(image_path, use_container_width=True)
 
-            col_1_title = 'Анализ и обработка данных'
+            col_1_title = _('Анализ и обработка данных')
             st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size}; font-weight: {font_style};'>{col_1_title}</span></div>", unsafe_allow_html=True)
             st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
             st.write(text_analysis)
             st.markdown(f"<div style='height: {gap_2}px;'></div>", unsafe_allow_html=True)
 
-            if st.button('Подробнее', type='primary', use_container_width=True, key='2'):
+            if st.button(text_button_more, type='primary', use_container_width=True, key='2'):
                 st.session_state.content_container = 'level_0_container_1'
+                st.write(f'# Нажато')
                 st.rerun()
 
-        # Прогнозирование
         with cols[1].container(height=height, border=True):
-            col_0_title = 'Прогнозирование'
+            col_0_title = _('Прогнозирование')
 
             cols_image = st.columns(spec=[1, width_image_col, 1])
             with cols_image[1].container(height=height_image, border=False):
@@ -427,40 +440,40 @@ async def main():
             st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size}; font-weight: {font_style};'>{col_0_title}</span></div>", unsafe_allow_html=True)
             st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
             st.write(text_forecasting)
-            st.markdown(f"<div style='height: {gap_2}px;'></div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='height: {gap_2_castom}px;'></div>", unsafe_allow_html=True)
 
-            if st.button('Подробнее', type='primary', use_container_width=True, key='1'):
+            if st.button(text_button_more, type='primary', use_container_width=True, key='1'):
                 st.session_state.content_container = 'level_0_container_0'
                 st.rerun()
 
-        # Оптимизация процессов
         with cols[2].container(height=height, border=True):
             cols_image = st.columns(spec=[1, width_image_col, 1])
             with cols_image[1].container(height=height_image, border=False):
                 image_path = 'src/ui/images/pngwing.com.png'
                 st.image(image_path, use_container_width=True)
 
-            col_2_title = 'Оптимизация процессов'
+            col_2_title = _('Оптимизация процессов')
             st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {font_size}; font-weight: {font_style};'>{col_2_title}</span></div>", unsafe_allow_html=True)
             st.markdown(f"<div style='height: {gap}px;'></div>", unsafe_allow_html=True)
             st.write(text_optimization)
             st.markdown(f"<div style='height: {gap_2}px;'></div>", unsafe_allow_html=True)
 
-            if st.button('Подробнее', type='primary', use_container_width=True, key='3'):
+            if st.button(text_button_more, type='primary', use_container_width=True, key='3'):
                 st.session_state.content_container = 'level_0_container_2'
                 st.rerun()
-            # Пробел между блоками
-        # Пробел перед новыми блоками
-
 
         image_1 = image_to_base64('src/ui/html/pexels-artempodrez-5716032.jpg')
         image_2 = image_to_base64('src/ui/html/pexels-rdne-7413936.jpg')
         image_3 = image_to_base64('src/ui/html/pexels-mikhail-nilov-6963017.jpg')
         image_4 = image_to_base64('src/ui/html/pexels-vlada-karpovich-7433837.jpg')
         image_5 = image_to_base64('src/ui/html/pexels-pavel-danilyuk-7868970.jpg')
-        test_text = 'text '*100
-        titles = ['⚡ Минимизация рисков', '🧠 Поддержка принятия решений', '🔗 Интеграция', '🔧 Гибкость и адаптивность', '⏳ Снижение затрат', '✨ Интуитивный интерфейс']
-        texts = ['', '', '', '', '', '']
+        title_1 = _('Минимизация рисков')
+        title_2 = _('Поддержка принятия решений')
+        title_3 = _('Интеграция')
+        title_4 = _('Гибкость и адаптивность')
+        title_5 = _('Снижение затрат')
+        title_6 = _('Интуитивный интерфейс')
+        titles = [title_1, title_2, title_3, title_4, title_5, title_6]
         texts = [text_risks, text_decision, text_integration, text_flexibility, text_costs, text_interface]
 
         html_output = generate_html_info(
@@ -476,16 +489,20 @@ async def main():
         with st.container(height=720, border=False, key='castom_info'):
             html(html_output, height=700)
 
+
+        text = _('Реализованный пример для University of Brescia')
+
         st.markdown("---")
         st.markdown(f"<div style='height: {50}px;'></div>", unsafe_allow_html=True)
-        st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {35}px;'>{'Реализованный пример для University of Brescia'}</span></div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='text-align: center;'><span style='font-family: {font}; font-size: {35}px;'>{text}</span></div>", unsafe_allow_html=True)
         st.markdown(f"<div style='height: {10}px;'></div>", unsafe_allow_html=True)
 
         cols = st.columns(3)
         cols[1].image("src/ui/images/new_logo_2022.svg")
 
 
-        cols[1].link_button("Перейти", type="primary", url="http://77.37.136.11:8501", use_container_width=True)
+        text_link_button = _("Перейти")
+        cols[1].link_button(text_link_button, type="primary", url="http://77.37.136.11:8501", use_container_width=True)
         st.markdown(f"<div style='height: {50}px;'></div>", unsafe_allow_html=True)
 
 
@@ -500,11 +517,11 @@ async def main():
     {text_question}
     📧 Email: support@forecastingtool.com
     📞 {text_phone} +7 (915) 548-88-52
-    🌐 {text_site} [forecastingtool.com](http://77.37.136.11:8501)
+    🌐 {text_site} [Horizon Time Series](http://77.37.136.11:8501)
     """)
 
     st.markdown("---")
-    text_last = _('2025 PowerPrognoz. Все права защищены.')
+    text_last = _('2025 Horizon Time Series')
     st.markdown(f"© {text_last}")
 
 

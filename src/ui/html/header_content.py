@@ -216,3 +216,72 @@ def generate_html_info(image_1, image_2, image_3, image_4, image_5, titles, text
     return html_content
 
 
+
+def generate_html_blocks():
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Выбор блока</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+            }
+
+            .container {
+                display: flex;
+                gap: 20px;
+            }
+
+            .block {
+                width: 200px;
+                height: 200px;
+                background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 15px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                cursor: pointer;
+            }
+
+            .block:hover {
+                transform: scale(1.1);
+                box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            }
+        </style>
+        <script>
+            function blockClicked(blockId) {
+                window.parent.postMessage({ blockId: blockId }, "*");
+            }
+
+            window.addEventListener("message", function(event) {
+                if (event.data.blockId) {
+                    document.querySelectorAll(".block").forEach(block => {
+                        block.style.backgroundColor = "white";
+                    });
+                    document.getElementById(event.data.blockId).style.backgroundColor = "#ddd";
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="block1" class="block" onclick="blockClicked('block1')">Блок 1</div>
+            <div id="block2" class="block" onclick="blockClicked('block2')">Блок 2</div>
+            <div id="block3" class="block" onclick="blockClicked('block3')">Блок 3</div>
+        </div>
+    </body>
+    </html>
+    """
+    return html_content
+

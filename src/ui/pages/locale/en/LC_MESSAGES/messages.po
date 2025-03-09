@@ -157,4 +157,112 @@ msgid "Магистр технологии искусственного инте
 msgstr "Master of Artificial Intelligence Technology"
 
 msgid "PhD. В области технологий для здравоохранения"
-msgstr "PhD. Candidate in Technology for Health"
+msgstr "PhD. Technology for Health"
+
+msgid "Horizon Time Series – энергия данных, точность прогнозов"
+msgstr "Horizon Time Series – data energy, forecast accuracy"
+
+msgid "Анализ и обработка данных"
+msgstr "Data analysis and processing"
+
+msgid "Подробнее"
+msgstr "Learn more"
+
+msgid "Прогнозирование"
+msgstr "Forecasting"
+
+msgid "Оптимизация процессов"
+msgstr "Process optimization"
+
+msgid "Минимизация рисков"
+msgstr "Risk minimization"
+
+msgid "Поддержка принятия решений"
+msgstr "Decision support"
+
+msgid "Интеграция"
+msgstr "Integration"
+
+msgid "Гибкость и адаптивность"
+msgstr "Flexibility and adaptability"
+
+msgid "Снижение затрат"
+msgstr "Cost reduction"
+
+msgid "Интуитивный интерфейс"
+msgstr "Intuitive interface"
+
+msgid "Выявляем скрытые закономерности и тренды в электропотреблении с помощью передовых методов обработки временных рядов."
+msgstr "We uncover hidden patterns and trends in electricity consumption using advanced time series processing methods."
+
+msgid "Используем машинное обучение и глубокие нейросети для точного предсказания энергопотребления и предотвращения пиковых нагрузок."
+msgstr "We use machine learning and deep neural networks for accurate energy consumption forecasting and peak load prevention."
+
+msgid "Разрабатываем интеллектуальные решения для повышения эффективности использования ресурсов и снижения затрат."
+msgstr "We develop intelligent solutions to improve resource efficiency and reduce costs."
+
+msgid "Снижаем неопределенность и помогаем избежать неожиданных скачков энергопотребления."
+msgstr "We reduce uncertainty and help avoid unexpected spikes in energy consumption."
+
+msgid "Предоставляем точные данные и прогнозы для эффективного управления ресурсами."
+msgstr "We provide accurate data and forecasts for effective resource management."
+
+msgid "Легко интегрируемся в существующие промышленные и IT-экосистемы."
+msgstr "We easily integrate into existing industrial and IT ecosystems."
+
+msgid "Адаптируемся под любые задачи благодаря модульному подходу."
+msgstr "We adapt to any tasks thanks to a modular approach."
+
+msgid "Оптимизируем энергопотребление и сокращаем издержки бизнеса."
+msgstr "We optimize energy consumption and reduce business costs."
+
+msgid "Интуитивно понятный и удобный интерфейс для работы без сложного обучения."
+msgstr "An intuitive and user-friendly interface for working without complex training."
+
+msgid "Реализованный пример для University of Brescia"
+msgstr "Implemented example for the University of Brescia"
+
+msgid "Перейти"
+msgstr "Go to the example"
+
+msgid "Назад"
+msgstr "Back"
+
+msgid "Анализ и обработка данных 🔍"
+msgstr "Data analysis and processing 🔍"
+
+msgid "Интерактивный дашборд"
+msgstr "Interactive dashboard"
+
+msgid "Визуализация метрик"
+msgstr "Metrics visualization"
+
+msgid "Анализ сезонностей"
+msgstr "Seasonality analysis"
+
+msgid "Минимизация рисков 🔍"
+msgstr "Risk minimization 🔍"
+
+msgid "Прогнозирование 📈"
+msgstr "Forecasting 📈"
+
+msgid "Оценивай точность самостоятельно"
+msgstr "Evaluate accuracy on your own"
+
+msgid "Мы предоставляем широкий набор метрик, который позволяет вам проводить объективную оценку тестируемых моделей. Используйте метрики точности, ошибки, устойчивости и качества прогнозирования, чтобы понять, насколько эффективно работает ваша модель. Различные метрики – оценка ошибок (MSE, RMSE, MAE), коэффициент детерминации (R²) и другие. Гибкость в анализе – сравнивайте модели и выбирайте лучшие решения. Прозрачность – получите четкое представление о сильных и слабых сторонах модели. Доверьтесь данным, а не интуиции! 🚀"
+msgstr "We provide a wide range of metrics that allow you to objectively assess the tested models. Use metrics for accuracy, error, stability, and forecasting quality to understand how well your model is performing. Different metrics – error assessment (MSE, RMSE, MAE), coefficient of determination (R²), and more. Flexibility in analysis – compare models and choose the best solutions. Transparency – get a clear understanding of the model's strengths and weaknesses. Trust the data, not intuition! 🚀"
+
+msgid "Создание своих уведомлений"
+msgstr "Creating your notifications"
+
+msgid "Получение уведомлений о превышении установленных значений на основе прогноза"
+msgstr "Receiving notifications for exceeding set values based on the forecast"
+
+msgid "Раздел создания уведомлений предназначен для настройки автоматических оповещений на основе прогнозных данных. Это позволяет оперативно реагировать на важные изменения и принимать обоснованные решения. Пользователь может задать условия и параметры уведомлений, чтобы получать своевременные сообщения при достижении критических значений или значимых тенденций. Гибкая система настройки обеспечивает адаптацию уведомлений под конкретные задачи, повышая удобство работы и эффективность мониторинга"
+msgstr "The notifications creation section is designed for setting up automatic alerts based on forecast data. This allows for prompt responses to important changes and informed decision-making. Users can set conditions and parameters for notifications to receive timely alerts when critical values or significant trends are reached. The flexible setup system ensures that notifications can be adapted to specific tasks, increasing work convenience and monitoring efficiency."
+
+msgid "Получение уведомлений о превышении установленных значений позволяет заранее реагировать на критические изменения, основываясь на прогнозных данных. Система автоматически отслеживает показатели и отправляет оповещения, если значения выходят за заданные границы. Это помогает оперативно принимать меры, снижать риски и эффективно управлять процессами. Гибкая настройка уведомлений позволяет адаптировать их под индивидуальные потребности, обеспечивая надежный контроль за ключевыми параметрами."
+msgstr "Receiving notifications for exceeding set values allows for proactive responses to critical changes based on forecast data. The system automatically monitors indicators and sends alerts when values exceed the specified limits. This helps to take prompt action, reduce risks, and manage processes effectively. Flexible notification settings allow them to be adapted to individual needs, ensuring reliable control over key parameters."
+
+msgid "Получение уведомлений о превышении установенных значений на основвании прогноза"
+msgstr "Receiving notifications about exceeding the set values based on the forecast"
