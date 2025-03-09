@@ -266,3 +266,6 @@ msgstr "Receiving notifications for exceeding set values allows for proactive re
 
 msgid "Получение уведомлений о превышении установенных значений на основвании прогноза"
 msgstr "Receiving notifications about exceeding the set values based on the forecast"
+
+msgid "Демонстрация интерфейса"
+msgstr "Demonstration of the interface"

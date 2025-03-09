@@ -1,4 +1,6 @@
 
+
+
 def generate_html_with_base64_image(title, description, image_1, image_2, image_3, image_4, image_5):
     html_content = f"""
     <!DOCTYPE html>
@@ -285,3 +287,83 @@ def generate_html_blocks():
     """
     return html_content
 
+
+import base64
+
+def image_to_base64(image_path: str) -> str:
+    with open(image_path, "rb") as img_file:
+        return f"data:image/jpeg;base64,{base64.b64encode(img_file.read()).decode()}"
+
+
+def generate_html(image_path: str, title: str, text: str, opacity: float = 0.5, width: int = 380, height: int = 420) -> str:
+    base64_image = image_to_base64(image_path)
+    return f'''<!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Styled Block</title>
+        <style>
+            body {{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: transparent;
+            }}
+            .container {{
+                width: {width}px;
+                height: {height}px;
+                position: relative;
+                overflow: hidden;
+                border-radius: 20px;
+                transition: transform 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }}
+            .container:hover {{
+                transform: scale(1.1);
+            }}
+            .background {{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: url('{base64_image}') no-repeat center/cover;
+                opacity: {opacity};
+                z-index: 1;
+            }}
+            .content {{
+                position: relative;
+                width: 90%;
+                padding: 20px;
+                text-align: center;
+                color: black;
+                font-family: monospace;
+                font-weight: bold;
+                background-color: rgba(255, 255, 255, 0.8);
+                border-radius: 10px;
+                z-index: 1;
+            }}
+            .title {{
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }}
+            .text {{
+                font-size: 18px;
+                font-weight: normal;
+            }}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="background"></div>
+            <div class="content">
+                <div class="title">{title}</div>
+                <div class="text">{text}</div>
+            </div>
+        </div>
+    </body>
+    </html>'''
