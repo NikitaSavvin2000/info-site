@@ -740,9 +740,9 @@ async def main():
         cols[1].image("src/ui/images/new_logo_2022.svg")
 
 
-        text_link_button = _("Перейти")
-        cols[1].link_button(text_link_button, type="primary", url="http://77.37.136.11:8501", use_container_width=True)
-        st.markdown(f"<div style='height: {50}px;'></div>", unsafe_allow_html=True)
+        # text_link_button = _("Перейти")
+        # cols[1].link_button(text_link_button, type="primary", url="http://77.37.136.11:8501", use_container_width=True)
+        # st.markdown(f"<div style='height: {50}px;'></div>", unsafe_allow_html=True)
 
 
     st.markdown("---")
@@ -754,9 +754,8 @@ async def main():
     text_site = _('Веб-сайт:')
     st.write(f"""
     {text_question}
-    📧 Email: support@forecastingtool.com
+    📧 Email: savvin.nikita.work@yandex.ru
     📞 {text_phone} +7 (915) 548-88-52
-    🌐 {text_site} [Horizon Time Series](http://77.37.136.11:8501)
     """)
 
     st.markdown("---")
